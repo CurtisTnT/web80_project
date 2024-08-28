@@ -12,7 +12,7 @@ export default function SignIn() {
             src="/assets/images/login-access.png"
             alt="login-access"
             width={500}
-            className="shadow-[0px_0px_10px_1px] shadow-gray-300 rounded"
+            className="shadow-[0px_0px_10px_1px] shadow-dark-shadow rounded"
           />
 
           <div>

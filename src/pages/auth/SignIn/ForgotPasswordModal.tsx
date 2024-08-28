@@ -82,7 +82,7 @@ export default function ForgotPasswordModal(props: Props) {
         >
           <div
             className={clsx(
-              "flex flex-col w-full shrink-0 py-4 items-center shadow-[0px_0px_10px_2px] shadow-gray-200 rounded-md duration-300 delay-200",
+              "flex flex-col w-full shrink-0 py-4 items-center shadow-[0px_0px_10px_2px] shadow-dark-shadow rounded-md duration-300 delay-200",
               {
                 "scale-100": cardId === 1,
                 "scale-[85%]": cardId !== 1,
@@ -125,7 +125,7 @@ export default function ForgotPasswordModal(props: Props) {
 
           <div
             className={clsx(
-              "relative flex flex-col w-full shrink-0 py-4 items-center shadow-[0px_0px_10px_2px] shadow-gray-200 rounded-md duration-300 delay-200",
+              "relative flex flex-col w-full shrink-0 py-4 items-center shadow-[0px_0px_10px_2px] shadow-dark-shadow rounded-md duration-300 delay-200",
               {
                 "scale-100": cardId === 2,
                 "scale-[85%]": cardId !== 2,

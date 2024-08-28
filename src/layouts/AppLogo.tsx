@@ -2,9 +2,9 @@ import LogoIcon from "@/icons/LogoIcon";
 
 export default function AppLogo() {
   return (
-    <span className="flex gap-5">
+    <span className="flex items-center gap-5">
       <LogoIcon />
-      <h4 className="text-2xl font-semibold">AProjectO</h4>
+      <h4 className="text-black text-2xl font-semibold">AProjectO</h4>
     </span>
   );
 }

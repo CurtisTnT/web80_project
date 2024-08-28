@@ -3,6 +3,8 @@ import "./App.css";
 
 import SignIn from "./pages/auth/SignIn";
 import MainLayout from "./layouts/MainLayout";
+import Projects from "./pages/main/Projects";
+import NewProject from "./pages/main/Projects/NewProject";
 
 function App() {
   const isAuthenticated = true;
@@ -15,6 +17,10 @@ function App() {
         {isAuthenticated && (
           <Route path="/" element={<MainLayout />}>
             <Route path="" element={<h1>Dashboard</h1>} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="projects/new" element={<NewProject />} />
+
+            <Route path="tasks" element={<h1>Tasks</h1>} />
           </Route>
         )}
 

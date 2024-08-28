@@ -14,7 +14,7 @@ export default function PrimaryButton(
     <button
       {...btnProps}
       className={clsx(
-        "w-full py-3 bg-blue border border-transparent rounded-md shadow-[0px_5px_15px_1px] shadow-blue/40 text-white font-bold hover:bg-white hover:border-blue hover:shadow-none hover:text-blue",
+        "w-full py-3 bg-primary border border-transparent rounded-md shadow-[0px_5px_15px_1px] shadow-primary/40 text-white font-bold hover:bg-white hover:border-primary hover:shadow-none hover:text-primary",
         className
       )}
       type="submit"

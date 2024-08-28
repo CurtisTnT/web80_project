@@ -1,0 +1,78 @@
+import { Form, FormikProps } from "formik";
+
+import TextInput from "@/components/inputs/TextInput";
+import { Project } from "@/services/interface";
+import DatePickerInput from "@/components/inputs/DatePickerInput";
+import { convertToEndOfDay, convertToStartOfDay } from "@/utils/helpers";
+import TextareaInput from "@/components/inputs/TextareaInput";
+import FieldLabel from "@/components/inputs/FieldLabel";
+
+type Props = {
+  formikProps: FormikProps<Project>;
+};
+
+export default function ProjectForm(props: Props) {
+  const { formikProps } = props;
+  const {
+    values,
+    errors,
+    touched,
+    setFieldValue,
+    setFieldTouched,
+    handleSubmit,
+  } = formikProps;
+  const { startDate, endDate } = values;
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-2 gap-6">
+        <TextInput
+          label="Title"
+          name="title"
+          isRequired
+          formikProps={formikProps}
+        />
+
+        <div className="grid grid-cols-2 gap-6">
+          <DatePickerInput
+            name="startDate"
+            label="Start date"
+            isRequired
+            value={startDate}
+            onChange={(dates) =>
+              setFieldValue("startDate", convertToStartOfDay(dates[0]))
+            }
+            onBlur={() => setFieldTouched("startDate", true)}
+            isErrored={!!errors.startDate && touched.startDate}
+          />
+
+          <DatePickerInput
+            name="endDate"
+            label="End date"
+            isRequired
+            value={endDate}
+            onChange={(dates) =>
+              setFieldValue("endDate", convertToEndOfDay(dates[0]))
+            }
+            onBlur={() => setFieldTouched("endDate", true)}
+            isErrored={!!errors.endDate && touched.endDate}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1">
+        <TextareaInput
+          name="desc"
+          label="Description"
+          formikProps={formikProps}
+        />
+      </div>
+
+      <div className="grid grid-cols-2">
+        <div className="col-span-1">
+          <FieldLabel name="members" label="Members" />
+        </div>
+      </div>
+    </Form>
+  );
+}

@@ -59,6 +59,9 @@ export default {
           bg: "#EEEEEE",
           border: "#EEEEEE",
         },
+        "dark-shadow": {
+          DEFAULT:  "rgb(59,63,92,0.2)",
+        },
       },
       fontFamily: {
         "space-grotesk": ['"Space Grotesk"', "sans-serif"],
