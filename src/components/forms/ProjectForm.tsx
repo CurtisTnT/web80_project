@@ -5,7 +5,6 @@ import { Project } from "@/services/interface";
 import DatePickerInput from "@/components/inputs/DatePickerInput";
 import { convertToEndOfDay, convertToStartOfDay } from "@/utils/helpers";
 import TextareaInput from "@/components/inputs/TextareaInput";
-import FieldLabel from "@/components/inputs/FieldLabel";
 
 type Props = {
   formikProps: FormikProps<Project>;
@@ -66,12 +65,6 @@ export default function ProjectForm(props: Props) {
           label="Description"
           formikProps={formikProps}
         />
-      </div>
-
-      <div className="grid grid-cols-2">
-        <div className="col-span-1">
-          <FieldLabel name="members" label="Members" />
-        </div>
       </div>
     </Form>
   );

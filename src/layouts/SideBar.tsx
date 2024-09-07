@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import TaskIcon from "@/icons/TaskIcon";
 import ProjectIcon from "@/icons/ProjectIcon";
+import UserIcon from "@/icons/UserIcon";
 
 export default function SideBar() {
   const { pathname } = useLocation();
@@ -10,12 +11,18 @@ export default function SideBar() {
   const SIDEBAR_ITEMS = [
     {
       id: 1,
+      title: "Users",
+      icon: <UserIcon className="shrink-0" />,
+      link: "/users",
+    },
+    {
+      id: 2,
       title: "Projects",
       icon: <ProjectIcon className="shrink-0" />,
       link: "/projects",
     },
     {
-      id: 2,
+      id: 3,
       title: "Tasks",
       icon: <TaskIcon className="shrink-0" />,
       link: "/tasks",

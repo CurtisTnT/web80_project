@@ -56,7 +56,7 @@ export default function SignInForm() {
                 Forgot password
               </button>
 
-              <PrimaryButton title="Sign in" />
+              <PrimaryButton title="Sign in" className="font-bold"/>
 
               <div className="text-sm font-space-grotesk">
                 Don't have an account?{" "}

@@ -10,11 +10,8 @@ export type FieldLabelProps = {
 export default function FieldLabel(props: FieldLabelProps) {
   const { label, name, isRequired, labelStyle } = props;
   return (
-    <div className="flex gap-1">
-      <label
-        htmlFor={name}
-        className={clsx("text-sm font-medium font-space-grotesk", labelStyle)}
-      >
+    <div className="flex gap-1 text-sm font-medium font-space-grotesk">
+      <label htmlFor={name} className={labelStyle}>
         {label}
       </label>
 

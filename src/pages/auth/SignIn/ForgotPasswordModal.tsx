@@ -114,7 +114,7 @@ export default function ForgotPasswordModal(props: Props) {
                     <div className="flex flex-col items-center">
                       <PrimaryButton
                         title="Send OTP"
-                        className="!px-4 !py-2 !w-auto"
+                        className="!px-4 !py-2 !w-auto font-bold"
                       />
                     </div>
                   </Form>
@@ -182,7 +182,7 @@ export default function ForgotPasswordModal(props: Props) {
                     <div className="flex flex-col items-center">
                       <PrimaryButton
                         title="Reset password"
-                        className="!px-4 !py-2 !w-auto"
+                        className="!px-4 !py-2 !w-auto font-bold"
                       />
                     </div>
                   </Form>

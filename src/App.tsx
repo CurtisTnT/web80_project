@@ -5,6 +5,8 @@ import SignIn from "./pages/auth/SignIn";
 import MainLayout from "./layouts/MainLayout";
 import Projects from "./pages/main/Projects";
 import NewProject from "./pages/main/Projects/NewProject";
+import Users from "./pages/main/Users";
+import NewUser from "./pages/main/Users/NewUser";
 
 function App() {
   const isAuthenticated = true;
@@ -17,6 +19,11 @@ function App() {
         {isAuthenticated && (
           <Route path="/" element={<MainLayout />}>
             <Route path="" element={<h1>Dashboard</h1>} />
+
+            {/* Users */}
+            <Route path="users" element={<Users />} />
+            <Route path="users/new" element={<NewUser />} />
+
             <Route path="projects" element={<Projects />} />
             <Route path="projects/new" element={<NewProject />} />
 

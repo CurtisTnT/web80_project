@@ -18,3 +18,12 @@ export function convertToEndOfDay(date: Date | string) {
   dateObj.setHours(23, 59, 59, 999);
   return dateObj.toString();
 }
+
+export function formatSingleConstantValue<T extends string>(
+  id: T | null,
+  objectType: {
+    [key in T]: { id: T; name: string };
+  }
+) {
+  return id ? { id, name: objectType[id].name } : null;
+}
