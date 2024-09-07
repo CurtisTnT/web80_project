@@ -19,7 +19,11 @@ export default function Users() {
         />
       </div>
 
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 gap-4">
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
         <UserCard />
       </div>
     </div>

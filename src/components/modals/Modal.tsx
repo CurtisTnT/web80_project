@@ -77,34 +77,36 @@ function Modal(props: PropsWithChildren<Props>, forwardRef: Ref<ModalRef>) {
           transition
           className="fixed inset-0 bg-black/30 duration-300 ease-out data-[closed]:opacity-0 backdrop-blur-sm"
         />
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <DialogPanel
-            transition
-            className={clsx(
-              "relative bg-white p-5 rounded-md w- duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0",
-              {
-                "w-[576px]": size === "sm",
-                "w-[768px]": size === "md",
-                "w-[1024px]": size === "lg",
-              }
-            )}
-          >
-            <button
-              type="button"
-              className="absolute z-10 top-5 right-5 border border-transparent rounded-md text-black hover:opacity-80 hover:border-blue"
-              onClick={handleCloseModal}
+        <div className="fixed inset-0 w-screen p-4 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center">
+            <DialogPanel
+              transition
+              className={clsx(
+                "relative bg-white p-5 rounded-md w- duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0",
+                {
+                  "w-[576px]": size === "sm",
+                  "w-[768px]": size === "md",
+                  "w-[1024px]": size === "lg",
+                }
+              )}
             >
-              <CgClose size={20} />
-            </button>
+              <button
+                type="button"
+                className="absolute z-10 top-5 right-5 border border-transparent rounded-md text-black hover:opacity-80 hover:border-blue"
+                onClick={handleCloseModal}
+              >
+                <CgClose size={20} />
+              </button>
 
-            <ComponentSpinner isLoading={loading}>
-              <div>{header}</div>
+              <ComponentSpinner isLoading={loading}>
+                <div>{header}</div>
 
-              <div>{children}</div>
+                <div>{children}</div>
 
-              <div>{footer}</div>
-            </ComponentSpinner>
-          </DialogPanel>
+                <div>{footer}</div>
+              </ComponentSpinner>
+            </DialogPanel>
+          </div>
         </div>
       </Dialog>
     </>
