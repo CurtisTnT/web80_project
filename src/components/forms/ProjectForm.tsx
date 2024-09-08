@@ -5,6 +5,7 @@ import { Project } from "@/services/interface";
 import DatePickerInput from "@/components/inputs/DatePickerInput";
 import { convertToEndOfDay, convertToStartOfDay } from "@/utils/helpers";
 import TextareaInput from "@/components/inputs/TextareaInput";
+import ProjectStatusDropdown from "@/components/dropdowns/ProjectStatusDropdown";
 
 type Props = {
   formikProps: FormikProps<Project>;
@@ -20,10 +21,17 @@ export default function ProjectForm(props: Props) {
     setFieldTouched,
     handleSubmit,
   } = formikProps;
-  const { startDate, endDate } = values;
+  const { startDate, endDate, status } = values;
 
   return (
     <Form onSubmit={handleSubmit}>
+      <div className="flex justify-end">
+        <ProjectStatusDropdown
+          value={status}
+          onChange={(newValues) => setFieldValue("status", newValues)}
+        />
+      </div>
+
       <div className="grid grid-cols-2 gap-6">
         <TextInput
           label="Title"

@@ -6,6 +6,7 @@ export const initialProject: Project = {
   desc: "",
   startDate: "",
   endDate: "",
+  status: "notStarted",
 };
 
 export const initialUser: User = {

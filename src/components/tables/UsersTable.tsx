@@ -82,8 +82,9 @@ export default function UsersTable() {
       columns={effectiveColumns}
       highlightOnHover
       shadow="sm"
-      borderRadius="sm"
+      borderRadius="md"
       scrollAreaProps={{ type: "never" }}
+      className="min-h-28"
     />
   );
 }

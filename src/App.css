@@ -94,3 +94,47 @@
     @apply text-white bg-blue;
   }
 }
+
+/* Project status */
+.notStarted {
+  @apply text-slate-500 bg-slate-500/20;
+
+  &.selected {
+    @apply text-white bg-slate-500 border-slate-500;
+  }
+}
+.inProgress {
+  @apply text-blue-500 bg-blue-500/20;
+
+  &.selected {
+    @apply text-white bg-blue-500 border-blue-500;
+  }
+}
+.onHold {
+  @apply text-amber-400 bg-amber-400/20;
+
+  &.selected {
+    @apply text-white bg-amber-400 border-amber-400;
+  }
+}
+.underReview {
+  @apply text-violet-500 bg-violet-500/20;
+
+  &.selected {
+    @apply text-white bg-violet-500 border-violet-500;
+  }
+}
+.completed {
+  @apply text-[#28A745] bg-[#28A745]/20;
+
+  &.selected {
+    @apply text-white bg-[#28A745] border-[#28A745];
+  }
+}
+.cancelled {
+  @apply text-red-500 bg-red-500/20;
+
+  &.selected {
+    @apply text-white bg-red-500 border-red-500;
+  }
+}

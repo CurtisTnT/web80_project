@@ -1,5 +1,6 @@
 import { JobTitleType } from "@/constants/jobTitle";
 import { designationLevelType } from "@/constants/designationLevel";
+import { ProjectStatusType } from "@/constants/projectStatus";
 
 export interface User {
   id: string;
@@ -19,4 +20,5 @@ export interface Project {
   desc: string;
   startDate: string;
   endDate: string;
+  status: ProjectStatusType;
 }
