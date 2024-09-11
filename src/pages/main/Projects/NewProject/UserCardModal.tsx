@@ -21,12 +21,12 @@ export default function UserCardModal(props: Props) {
           <p>
             <span className="text-primary">0</span> selected member(s)
           </p>
-          <PrimaryButton title="Add" className="!w-auto px-4 py-1" />
+          <PrimaryButton title="Add" />
         </div>
       }
       size="lg"
     >
-      <div className="grid grid-cols-3 gap-4 h-[calc(100vh-178px)] overflow-y-scroll p-4 bg-white shadow-[inset_0px_0px_10px_1px] shadow-dark-shadow rounded-md">
+      <div className="grid grid-cols-3 gap-4 h-[calc(100vh-194px)] overflow-y-scroll p-4 bg-white shadow-[inset_0px_0px_10px_1px] shadow-dark-shadow rounded-md">
         <UserCard />
         <UserCard />
         <UserCard />

@@ -10,7 +10,7 @@ export default function PageCard({
   children,
 }: PropsWithChildren<Props>) {
   return (
-    <div className={clsx("p-5 bg-white rounded-lg shadow-lg", className)}>
+    <div className={clsx("relative p-5 bg-white rounded-lg shadow-lg", className)}>
       {children}
     </div>
   );

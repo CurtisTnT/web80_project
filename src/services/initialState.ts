@@ -1,4 +1,4 @@
-import { Project, User } from "./interface";
+import { Project, Task, User } from "./interface";
 
 export const initialProject: Project = {
   id: "",
@@ -7,6 +7,8 @@ export const initialProject: Project = {
   startDate: "",
   endDate: "",
   status: "notStarted",
+  tasks: [],
+  members: [],
 };
 
 export const initialUser: User = {
@@ -19,4 +21,17 @@ export const initialUser: User = {
   createdBy: null,
   designationLevel: null,
   jobTitle: null,
+};
+
+export const initialTask: Task = {
+  id: "",
+  title: "",
+  desc: "",
+  startDate: "",
+  endDate: "",
+  status: "toDo",
+  assignor: null,
+  assignees: [],
+  attachments: [],
+  comments: [],
 };

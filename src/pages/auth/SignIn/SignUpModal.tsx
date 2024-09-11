@@ -118,7 +118,7 @@ export default function SignUpModal(props: Props) {
                 formikProps={formikProps}
               />
 
-              <PrimaryButton title="Register" className="mt-2 font-bold" />
+              <PrimaryButton title="Register" className="!w-full mt-2 font-bold" />
             </Form>
           )}
         </Formik>

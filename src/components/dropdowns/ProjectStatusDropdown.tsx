@@ -45,18 +45,18 @@ export default function ProjectStatusDropdown(props: Props) {
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-sm font-medium">{ProjectStatus[value].name}</span>
+        <span className="font-medium">{ProjectStatus[value].name}</span>
         <IoChevronDownOutline className="shrink-0" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-10 right-0 z-10 overflow-scroll py-1 bg-white border rounded-md shadow">
+        <div className="absolute top-9 right-0 z-10 overflow-scroll py-1 bg-white border rounded-md shadow">
           {projectStatusOptions.map(({ id, name }) => (
             <button
               key={id}
               type="button"
               className={clsx(
-                "flex gap-1 items-center justify-center w-full px-3 py-1.5 hover:bg-[#F4F5F7]",
+                "flex gap-1 items-center justify-center w-full px-6 py-1.5 hover:bg-[#F4F5F7]",
                 {
                   hidden: value === id,
                 }
@@ -67,7 +67,7 @@ export default function ProjectStatusDropdown(props: Props) {
               }}
             >
               <span
-                className={clsx("px-1.5 rounded-full text-nowrap text-sm", id)}
+                className={clsx("px-1.5 rounded-full text-nowrap", id)}
               >
                 {name}
               </span>

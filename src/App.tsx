@@ -7,6 +7,7 @@ import Projects from "./pages/main/Projects";
 import NewProject from "./pages/main/Projects/NewProject";
 import Users from "./pages/main/Users";
 import NewUser from "./pages/main/Users/NewUser";
+import ProjectDetail from "./pages/main/Projects/ProjectDetail";
 
 function App() {
   const isAuthenticated = true;
@@ -26,6 +27,7 @@ function App() {
 
             <Route path="projects" element={<Projects />} />
             <Route path="projects/new" element={<NewProject />} />
+            <Route path="projects/:projectId" element={<ProjectDetail />} />
 
             <Route path="tasks" element={<h1>Tasks</h1>} />
           </Route>

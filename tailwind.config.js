@@ -50,9 +50,7 @@ export default {
           dark: "#888ea8",
         },
         blue: {
-          DEFAULT: "#223D80",
-          light: "#223D80",
-          dark: "#223D80",
+          DEFAULT: "#1e40af",
         },
         disable: {
           text: "#888EA8",

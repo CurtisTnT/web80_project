@@ -1,11 +1,17 @@
 import { Form, FormikProps } from "formik";
+import { object, string } from "yup";
 
 import TextInput from "@/components/inputs/TextInput";
 import { Project } from "@/services/interface";
 import DatePickerInput from "@/components/inputs/DatePickerInput";
 import { convertToEndOfDay, convertToStartOfDay } from "@/utils/helpers";
 import TextareaInput from "@/components/inputs/TextareaInput";
-import ProjectStatusDropdown from "@/components/dropdowns/ProjectStatusDropdown";
+
+export const projectSchema = object({
+  title: string().required("Title is required!"),
+  startDate: string().required("Start date is required!"),
+  endDate: string().required("End date is required!"),
+});
 
 type Props = {
   formikProps: FormikProps<Project>;
@@ -21,17 +27,10 @@ export default function ProjectForm(props: Props) {
     setFieldTouched,
     handleSubmit,
   } = formikProps;
-  const { startDate, endDate, status } = values;
+  const { startDate, endDate } = values;
 
   return (
     <Form onSubmit={handleSubmit}>
-      <div className="flex justify-end">
-        <ProjectStatusDropdown
-          value={status}
-          onChange={(newValues) => setFieldValue("status", newValues)}
-        />
-      </div>
-
       <div className="grid grid-cols-2 gap-6">
         <TextInput
           label="Title"

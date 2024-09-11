@@ -1,8 +1,16 @@
-// mm/dd/yyyy
+// dd/mm/yyyy
 export function formatNormalDate(date: string | Date) {
   return new Date(date).toLocaleDateString("en-GB", {
-    month: "2-digit",
     day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+// dd/M/yyyy
+export function formatDateShortMonth(date: string | Date) {
+  return new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
     year: "numeric",
   });
 }

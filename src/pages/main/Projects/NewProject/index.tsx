@@ -2,21 +2,19 @@ import { Formik } from "formik";
 
 import Breadcrumb from "@/layouts/Breadcrumb";
 import PageCard from "@/layouts/PageCard";
-import ProjectForm from "@/components/forms/ProjectForm";
+import ProjectForm, { projectSchema } from "@/components/forms/ProjectForm";
 import { Project } from "@/services/interface";
 import { initialProject } from "@/services/initialState";
-import FieldLabel from "@/components/inputs/FieldLabel";
-import UsersTable from "@/components/tables/UsersTable";
+import AddMembersTable from "@/components/tables/AddMembersTable";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
-import PlusIcon from "@/icons/PlusIcon";
-import UserCardModal from "./UserCardModal";
-import { useRef } from "react";
-import { ModalRef } from "@/components/modals/Modal";
+import OutlinePrimaryButton from "@/components/buttons/OutlinePrimaryButton";
+import { useNavigate } from "react-router-dom";
 
 type FormValues = Pick<Project, "title" | "desc" | "endDate" | "startDate">;
 
 export default function NewProject() {
-  const userCardModalRef = useRef<ModalRef>(null);
+  const navigate = useNavigate();
+
   const handleCreateProject = (values: FormValues) => {
     console.log(values);
   };
@@ -31,27 +29,26 @@ export default function NewProject() {
       />
 
       <PageCard className="mt-5">
-        <Formik initialValues={initialProject} onSubmit={handleCreateProject}>
+        <Formik
+          initialValues={initialProject}
+          onSubmit={handleCreateProject}
+          validationSchema={projectSchema}
+        >
           {(formikProps) => <ProjectForm formikProps={formikProps} />}
         </Formik>
 
-        <div>
-          <FieldLabel name="members" label="Members" />
-          <UsersTable />
-          <div className="flex justify-center items-center mt-2">
-            <PrimaryButton
-              type="button"
-              className="!w-auto px-2.5 py-1"
-              onClick={() => userCardModalRef.current?.open()}
-            >
-              <PlusIcon />
-              <span className="text-sm">Add member(s)</span>
-            </PrimaryButton>
-          </div>
+        <AddMembersTable isEdit />
+
+        <div className="flex justify-end gap-4">
+          <PrimaryButton title="Create" />
+          <OutlinePrimaryButton
+            type="button"
+            title="Cancel"
+            className="!w-auto"
+            onClick={() => navigate("/projects")}
+          />
         </div>
       </PageCard>
-
-      <UserCardModal userCardModalRef={userCardModalRef} />
     </div>
   );
 }

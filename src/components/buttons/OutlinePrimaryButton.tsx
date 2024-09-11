@@ -14,7 +14,7 @@ export default function OutlinePrimaryButton(
     <button
       {...btnProps}
       className={clsx(
-        "w-full py-3 bg-[#EEF4FB] border border-transparent rounded-md shadow-[0px_5px_15px_1px] shadow-dark/20 text-primary hover:border-primary hover:shadow-none",
+        "px-3 py-1.5 bg-[#EEF4FB] border border-transparent rounded-md shadow-[0px_3px_10px_1px] shadow-dark-shadow text-primary hover:border-primary hover:shadow-none",
         className
       )}
       type="submit"

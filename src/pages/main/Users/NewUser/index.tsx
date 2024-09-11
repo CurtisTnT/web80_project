@@ -62,15 +62,10 @@ export default function NewUser() {
         </div>
 
         <div className="flex justify-end gap-4">
-          <PrimaryButton
-            title="Create"
-            className="!w-auto !px-3 !py-1.5"
-            form="create-user"
-          />
+          <PrimaryButton title="Create" form="create-user" />
           <OutlinePrimaryButton
             title="Cancel"
-            className="!w-auto !px-3 !py-1.5"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/users")}
           />
         </div>
       </PageCard>

@@ -19,7 +19,7 @@ export default function Breadcrumb(props: Props) {
           >
             /
           </p>
-          <Link to={href || "#"}>{title}</Link>
+          {href ? <Link to={href}>{title}</Link> : <span>{title}</span>}
         </Fragment>
       ))}
     </div>
