@@ -2,6 +2,7 @@ import { JobTitleType } from "@/constants/jobTitle";
 import { designationLevelType } from "@/constants/designationLevel";
 import { ProjectStatusType } from "@/constants/projectStatus";
 import { TaskStatusType } from "@/constants/taskStatus";
+import { TaskPriorityType } from "@/constants/taskPriority";
 
 export interface User {
   id: string;
@@ -25,6 +26,21 @@ export interface Comment {
   id: string;
   content: string;
   createdBy: User;
+  updatedAt: string;
+}
+
+export interface SubTask {
+  id: string;
+  title: string;
+  desc: string;
+  startDate: string;
+  endDate: string;
+  status: TaskStatusType;
+  reporter: User | null;
+  assignees: User[];
+  attachments: Attachment[];
+  comments: Comment[];
+  priority: TaskPriorityType;
 }
 
 export interface Task {
@@ -34,10 +50,11 @@ export interface Task {
   startDate: string;
   endDate: string;
   status: TaskStatusType;
-  assignor: User | null;
+  reporter: User | null;
   assignees: User[];
   attachments: Attachment[];
   comments: Comment[];
+  priority: TaskPriorityType;
 }
 
 export interface Project {

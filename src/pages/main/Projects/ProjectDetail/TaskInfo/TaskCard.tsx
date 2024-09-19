@@ -8,14 +8,18 @@ import UserAvatars from "@/components/UserAvatars";
 
 type Props = {
   task: Task;
+  onOpenTaskModal: () => void;
 };
 
 export default function TaskCard(props: Props) {
-  const { task } = props;
-  const { title, desc, endDate, attachments, assignor, assignees } = task;
+  const { task, onOpenTaskModal } = props;
+  const { title, desc, endDate, attachments, reporter, assignees } = task;
 
   return (
-    <div className="p-3 bg-white rounded-md shadow-[0px_0px_5px_1px] shadow-dark-shadow space-y-3 hover:shadow-primary/40 duration-300 cursor-pointer">
+    <div
+      onClick={onOpenTaskModal}
+      className="p-3 bg-white rounded-md shadow-[0px_0px_5px_1px] shadow-dark-shadow space-y-3 hover:shadow-primary/40 duration-300 cursor-pointer"
+    >
       <div className="flex items-center justify-between">
         <h4 className="text-sm font-medium">{title}</h4>
         <div className="flex items-center gap-1 text-danger font-medium">
@@ -41,7 +45,7 @@ export default function TaskCard(props: Props) {
           </span>
         </div>
 
-        <UserAvatars users={[assignor, ...assignees].filter((u) => !!u)} />
+        <UserAvatars users={[reporter, ...assignees].filter((u) => !!u)} />
       </div>
     </div>
   );

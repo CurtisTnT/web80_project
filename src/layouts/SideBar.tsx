@@ -23,9 +23,9 @@ export default function SideBar() {
     },
     {
       id: 3,
-      title: "Tasks",
+      title: "My tasks",
       icon: <TaskIcon className="shrink-0" />,
-      link: "/tasks",
+      link: "/my-tasks",
     },
   ];
 

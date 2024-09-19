@@ -41,8 +41,8 @@ export default function SingleSelect<T>(props: Props<T>) {
       <div className="relative">
         <ComboboxInput
           className={clsx(
-            "w-full rounded-lg border py-1.5 pr-10 pl-3 text-sm/6 ",
-            "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
+            "w-full rounded-lg border outline-none py-1.5 pr-10 pl-3 text-sm/6 peer",
+            "focus:border-primary",
             {
               "border-danger": isError,
               "border-white-light": !isError,
@@ -55,14 +55,14 @@ export default function SingleSelect<T>(props: Props<T>) {
         />
         <ComboboxButton
           className={clsx(
-            "group absolute inset-y-0 right-0 px-2.5 border bg-dark-light rounded-r-lg",
+            "group absolute inset-y-0 right-0 px-2.5 border bg-dark-light rounded-r-lg peer-focus:border-primary",
             {
               "border-danger": isError,
               "border-white-light": !isError,
             }
           )}
         >
-          <IoChevronDownOutline className="size-4 group-data-[open]:rotate-180" />
+          <IoChevronDownOutline className="size-4 -rotate-180 group-data-[open]:rotate-0 duration-200" />
         </ComboboxButton>
       </div>
 

@@ -20,7 +20,7 @@ export type ModalRef = {
 type Props = {
   header?: string | React.ReactNode;
   footer?: string | React.ReactNode;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "full";
   onClosed?: () => void;
 };
 
@@ -77,7 +77,7 @@ function Modal(props: PropsWithChildren<Props>, forwardRef: Ref<ModalRef>) {
           transition
           className="fixed inset-0 bg-black/30 duration-300 ease-out data-[closed]:opacity-0 backdrop-blur-sm"
         />
-        <div className="fixed inset-0 w-screen p-4 overflow-y-auto">
+        <div className="fixed inset-0 w-screen p-16 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center">
             <DialogPanel
               transition
@@ -87,6 +87,7 @@ function Modal(props: PropsWithChildren<Props>, forwardRef: Ref<ModalRef>) {
                   "w-[576px]": size === "sm",
                   "w-[768px]": size === "md",
                   "w-[1024px]": size === "lg",
+                  "w-full h-[calc(100vh-128px)]": size === "full",
                 }
               )}
             >

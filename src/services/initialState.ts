@@ -1,4 +1,4 @@
-import { Project, Task, User } from "./interface";
+import { Comment, Project, SubTask, Task, User } from "./interface";
 
 export const initialProject: Project = {
   id: "",
@@ -30,8 +30,30 @@ export const initialTask: Task = {
   startDate: "",
   endDate: "",
   status: "toDo",
-  assignor: null,
+  reporter: null,
   assignees: [],
   attachments: [],
   comments: [],
+  priority: "low",
+};
+
+export const initialSubTask: SubTask = {
+  id: "",
+  title: "",
+  desc: "",
+  startDate: "",
+  endDate: "",
+  status: "toDo",
+  reporter: null,
+  assignees: [],
+  attachments: [],
+  comments: [],
+  priority: "low",
+};
+
+export const initialComment: Comment = {
+  id: "",
+  content: "",
+  createdBy: initialUser,
+  updatedAt: "",
 };

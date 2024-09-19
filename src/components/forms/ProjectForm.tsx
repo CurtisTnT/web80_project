@@ -6,6 +6,8 @@ import { Project } from "@/services/interface";
 import DatePickerInput from "@/components/inputs/DatePickerInput";
 import { convertToEndOfDay, convertToStartOfDay } from "@/utils/helpers";
 import TextareaInput from "@/components/inputs/TextareaInput";
+import FieldLabel from "@/components/inputs/FieldLabel";
+import FieldError from "@/components/inputs/FieldError";
 
 export const projectSchema = object({
   title: string().required("Title is required!"),
@@ -40,29 +42,31 @@ export default function ProjectForm(props: Props) {
         />
 
         <div className="grid grid-cols-2 gap-6">
-          <DatePickerInput
-            name="startDate"
-            label="Start date"
-            isRequired
-            value={startDate}
-            onChange={(dates) =>
-              setFieldValue("startDate", convertToStartOfDay(dates[0]))
-            }
-            onBlur={() => setFieldTouched("startDate", true)}
-            isErrored={!!errors.startDate && touched.startDate}
-          />
+          <div className="col-span-1">
+            <FieldLabel label="Start date" name="startDate" isRequired />
+            <DatePickerInput
+              value={startDate}
+              onChange={(dates) =>
+                setFieldValue("startDate", convertToStartOfDay(dates[0]))
+              }
+              onBlur={() => setFieldTouched("startDate", true)}
+              isErrored={!!errors.startDate && touched.startDate}
+            />
+            <FieldError name="startDate" />
+          </div>
 
-          <DatePickerInput
-            name="endDate"
-            label="End date"
-            isRequired
-            value={endDate}
-            onChange={(dates) =>
-              setFieldValue("endDate", convertToEndOfDay(dates[0]))
-            }
-            onBlur={() => setFieldTouched("endDate", true)}
-            isErrored={!!errors.endDate && touched.endDate}
-          />
+          <div className="col-span-1">
+            <FieldLabel label="End date" name="endDate" isRequired />
+            <DatePickerInput
+              value={endDate}
+              onChange={(dates) =>
+                setFieldValue("endDate", convertToEndOfDay(dates[0]))
+              }
+              onBlur={() => setFieldTouched("endDate", true)}
+              isErrored={!!errors.endDate && touched.endDate}
+            />
+            <FieldError name="endDate" />
+          </div>
         </div>
       </div>
 

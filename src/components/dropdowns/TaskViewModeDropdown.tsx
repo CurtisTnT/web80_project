@@ -19,20 +19,19 @@ export default function TaskViewTypeDropdown(props: Props) {
 
   const dropdownCtnRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownCtnRef.current!.contains(event.target as Node)) {
-      return;
-    }
-
-    setIsOpen(false);
-  };
-
   useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!dropdownCtnRef.current!.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <div className="flex items-center gap-1">

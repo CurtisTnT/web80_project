@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
 import DropdownBtn from "@/components/dropdowns/DropdownBtn";
@@ -9,21 +8,37 @@ import { initialUser } from "@/services/initialState";
 
 type Props = {
   statusTitle: string;
+  openTaskModal: (task: Task) => void;
 };
 
 export default function TaskStatusCard(props: Props) {
-  const { statusTitle } = props;
+  const { statusTitle, openTaskModal } = props;
+
   const task: Task = {
-    id: "",
+    id: "kqeqkwen123",
     title: "Task 1",
     desc: "Description of task 1",
     startDate: "2024/09/08",
     endDate: "2024/09/10",
     status: "toDo",
-    assignor: { ...initialUser, avatar: "/assets/images/sign-up.png" },
-    assignees: [{ ...initialUser, avatar: "/assets/images/sign-up.png" }],
+    reporter: {
+      ...initialUser,
+      avatar: "/assets/images/sign-up.png",
+      firstName: "Reporter",
+      lastName: "1",
+    },
+    assignees: [
+      {
+        ...initialUser,
+        avatar: "/assets/images/sign-up.png",
+        firstName: "Assignee 1",
+        lastName: "1",
+        id: "1",
+      },
+    ],
     attachments: [],
     comments: [],
+    priority: "low",
   };
 
   return (
@@ -41,10 +56,10 @@ export default function TaskStatusCard(props: Props) {
           <PlusIcon className="text-blue" />
         </button>
 
-        <TaskCard task={task} />
-        <TaskCard task={task} />
-        <TaskCard task={task} />
-        <TaskCard task={task} />
+        <TaskCard task={task} onOpenTaskModal={() => openTaskModal(task)} />
+        <TaskCard task={task} onOpenTaskModal={() => openTaskModal(task)} />
+        <TaskCard task={task} onOpenTaskModal={() => openTaskModal(task)} />
+        <TaskCard task={task} onOpenTaskModal={() => openTaskModal(task)} />
       </div>
     </div>
   );

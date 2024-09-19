@@ -29,7 +29,7 @@ function App() {
             <Route path="projects/new" element={<NewProject />} />
             <Route path="projects/:projectId" element={<ProjectDetail />} />
 
-            <Route path="tasks" element={<h1>Tasks</h1>} />
+            <Route path="my-tasks" element={<h1>Tasks</h1>} />
           </Route>
         )}
 

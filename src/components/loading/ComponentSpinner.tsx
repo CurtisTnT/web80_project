@@ -6,10 +6,11 @@ import Loader from "./Loader";
 type Props = {
   isLoading: boolean;
   className?: string;
+  loaderClassName?: string;
 };
 
 export default function ComponentSpinner(props: PropsWithChildren<Props>) {
-  const { isLoading, className, children } = props;
+  const { isLoading, className, loaderClassName, children } = props;
 
   return (
     <div className={clsx("relative", className)}>
@@ -22,7 +23,7 @@ export default function ComponentSpinner(props: PropsWithChildren<Props>) {
           }
         )}
       >
-        <Loader />
+        <Loader className={loaderClassName} />
       </div>
     </div>
   );
