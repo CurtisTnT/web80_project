@@ -4,8 +4,16 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 import AppLogo from "@/layouts/AppLogo";
 import DropdownBtn, { DropdownItem } from "@/components/dropdowns/DropdownBtn";
+import { useAppDispatch } from "@/reduxStore";
+import { signOut } from "@/reduxStore/auth/action";
 
 export default function Header() {
+  const dispatch = useAppDispatch();
+
+  const handleSignOut = () => {
+    dispatch(signOut());
+  };
+
   return (
     <header className="fixed top-0 w-full z-20 flex items-center justify-between h-20 bg-white shadow-[0px_5px_10px_1px] shadow-dark-shadow px-5">
       <Link to="/">
@@ -32,7 +40,7 @@ export default function Header() {
             <span>Profile</span>
           </DropdownItem>
           <DropdownItem
-            onClick={() => {}}
+            onClick={handleSignOut}
             className="font-medium text-danger hover:!text-white hover:!bg-danger"
           >
             <IoLogOutOutline size={20} />

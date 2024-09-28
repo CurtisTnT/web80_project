@@ -8,14 +8,9 @@ import PasswordInput from "@/components/inputs/PasswordInput";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
 import { phoneRegExp } from "@/constants/regex";
 import CenterToast from "@/components/toasts/CenterToast";
-
-type FormValues = {
-  userName: string;
-  phoneNumber: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+import { signUp } from "@/reduxStore/auth/action";
+import { SignUpQuery } from "@/reduxStore/interface";
+import { handleApiResponse } from "@/utils/helpers";
 
 type Props = {
   signUpRef: Ref<ModalRef>;
@@ -27,7 +22,8 @@ export default function SignUpModal(props: Props) {
   const { signUpRef, onLoading, onClose } = props;
 
   const createAccSchema = Yup.object({
-    userName: Yup.string().required("Full name is required"),
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
     email: Yup.string().required("Email is required").email("Invalid email"),
     phoneNumber: Yup.string().matches(phoneRegExp, "Invalid phone number"),
     password: Yup.string()
@@ -38,19 +34,30 @@ export default function SignUpModal(props: Props) {
       .oneOf([Yup.ref("password")], "Password does not match"),
   });
 
-  const handleCreateAccount = (values: FormValues) => {
+  const handleCreateAccount = async (values: SignUpQuery) => {
     onLoading(true);
 
-    setTimeout(() => {
-      console.log(values);
-      onClose();
-      onLoading(false);
-      CenterToast({
-        title: "Register successfully!",
-        text: "Your account has been successfully created. Please sign in using your credentials!",
-        icon: "success",
-      });
-    }, 1000);
+    const res = await signUp(values);
+
+    handleApiResponse({
+      res,
+      onSuccess(res) {
+        onClose();
+        CenterToast({
+          title: "Register successfully!",
+          text: res.message,
+          icon: "success",
+        });
+      },
+      onError(res) {
+        CenterToast({
+          title: "Register failed!",
+          text: res.message,
+          icon: "error",
+        });
+      },
+    });
+    onLoading(false);
   };
 
   return (
@@ -73,7 +80,8 @@ export default function SignUpModal(props: Props) {
 
         <Formik
           initialValues={{
-            userName: "",
+            firstName: "",
+            lastName: "",
             phoneNumber: "",
             email: "",
             password: "",
@@ -86,8 +94,15 @@ export default function SignUpModal(props: Props) {
             <Form className="w-[330px]" onSubmit={formikProps.handleSubmit}>
               <TextInput
                 isRequired
-                label="Full name"
-                name="userName"
+                label="First name"
+                name="firstName"
+                formikProps={formikProps}
+              />
+
+              <TextInput
+                isRequired
+                label="Last name"
+                name="lastName"
                 formikProps={formikProps}
               />
 
@@ -118,7 +133,10 @@ export default function SignUpModal(props: Props) {
                 formikProps={formikProps}
               />
 
-              <PrimaryButton title="Register" className="!w-full mt-2 font-bold" />
+              <PrimaryButton
+                title="Register"
+                className="!w-full mt-2 font-bold"
+              />
             </Form>
           )}
         </Formik>

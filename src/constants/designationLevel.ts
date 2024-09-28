@@ -1,4 +1,4 @@
-export type designationLevelType =
+export type DesignationLevelType =
   | "intern"
   | "entry"
   | "middle"
@@ -6,7 +6,7 @@ export type designationLevelType =
   | "management";
 
 export const DesignationLevel: {
-  [key in designationLevelType]: { id: designationLevelType; name: string };
+  [key in DesignationLevelType]: { id: DesignationLevelType; name: string };
 } = {
   intern: { id: "intern", name: "Internship" },
   entry: { id: "entry", name: "Entry level" },
@@ -17,7 +17,7 @@ export const DesignationLevel: {
 
 export const DesignationLevelOptions = Object.keys(DesignationLevel).map(
   (key) => ({
-    id: DesignationLevel[key as designationLevelType].id,
-    name: DesignationLevel[key as designationLevelType].name,
+    id: DesignationLevel[key as DesignationLevelType].id,
+    name: DesignationLevel[key as DesignationLevelType].name,
   })
 );

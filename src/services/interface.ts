@@ -1,5 +1,5 @@
 import { JobTitleType } from "@/constants/jobTitle";
-import { designationLevelType } from "@/constants/designationLevel";
+import { DesignationLevelType } from "@/constants/designationLevel";
 import { ProjectStatusType } from "@/constants/projectStatus";
 import { TaskStatusType } from "@/constants/taskStatus";
 import { TaskPriorityType } from "@/constants/taskPriority";
@@ -12,7 +12,7 @@ export interface User {
   avatar: string;
   phoneNumber: string;
   createdBy: User | null;
-  designationLevel: designationLevelType | null;
+  designationLevel: DesignationLevelType | null;
   jobTitle: JobTitleType | null;
 }
 
@@ -67,3 +67,13 @@ export interface Project {
   tasks: Task[];
   members: User[];
 }
+
+export type UserQuery = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber?: string;
+  createdBy: User | null;
+  designationLevel?: DesignationLevelType | null;
+  jobTitle?: JobTitleType | null;
+};
