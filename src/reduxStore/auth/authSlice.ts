@@ -8,11 +8,21 @@ const initialState: {
   data: Auth;
   isAuthenticated: boolean;
   loading: boolean;
-} = { data: initAuth, isAuthenticated: false, loading: false };
+  isAdmin: boolean;
+  isLead: boolean;
+  isStaff: boolean;
+} = {
+  data: initAuth,
+  isAuthenticated: false,
+  loading: false,
+  isAdmin: false,
+  isLead: false,
+  isStaff: false,
+};
 
 const authSlice = createSlice({
   name: "authentication",
-  initialState: initialState,
+  initialState,
   reducers: { resetAuth: () => initialState },
   extraReducers: (builder) =>
     builder
@@ -21,6 +31,9 @@ const authSlice = createSlice({
         data: payload.data,
         isAuthenticated: true,
         loading: false,
+        isAdmin: payload.data.role === "admin",
+        isLead: payload.data.role === "lead",
+        isStaff: payload.data.role === "staff",
       }))
       .addCase(signIn.rejected, (state) => ({ ...state, loading: false }))
 
@@ -32,6 +45,9 @@ const authSlice = createSlice({
         data: payload.data,
         isAuthenticated: true,
         loading: false,
+        isAdmin: payload.data.role === "admin",
+        isLead: payload.data.role === "lead",
+        isStaff: payload.data.role === "staff",
       }))
       .addCase(checkAuthentication.rejected, (state) => ({
         ...state,

@@ -8,7 +8,7 @@ type Props = {
   loading?: boolean;
 };
 
-export default function PrimaryButton(
+export default function DangerButton(
   props: PropsWithChildren<Props> &
     React.ButtonHTMLAttributes<HTMLButtonElement>
 ) {
@@ -18,7 +18,7 @@ export default function PrimaryButton(
     <button
       {...btnProps}
       className={clsx(
-        "relative flex gap-1 items-center justify-center w-auto px-4 py-1.5 bg-blue border border-transparent rounded-md shadow-[0px_5px_15px_1px] shadow-blue/40 text-white hover:bg-white hover:border-blue hover:shadow-none hover:text-blue disabled:opacity-50 disabled:hover:bg-blue disabled:hover:text-white disabled:hover:cursor-not-allowed",
+        "relative flex gap-1 items-center justify-center w-auto px-4 py-1.5 bg-danger border border-transparent rounded-md shadow-[0px_5px_15px_1px] shadow-danger/40 text-white hover:bg-white hover:border-danger hover:shadow-none hover:text-danger disabled:opacity-50 disabled:hover:bg-danger disabled:hover:text-white disabled:hover:cursor-not-allowed",
         className
       )}
       type="submit"

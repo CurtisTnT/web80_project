@@ -1,5 +1,6 @@
 import { DesignationLevelType } from "@/constants/designationLevel";
 import { JobTitleType } from "@/constants/jobTitle";
+import { RoleType } from "@/constants/role";
 
 //Query type
 export type SignUpQuery = {
@@ -32,6 +33,16 @@ export type ResetPasswordQuery = {
   confirmPassword: string;
 };
 
+export type UserQuery = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  designationLevel: DesignationLevelType | null;
+  jobTitle: JobTitleType | null;
+  role: RoleType | null;
+};
+
 //Response type
 export type ServerResponse<T> = SuccessResponse<T> | ErrorResponse;
 
@@ -54,19 +65,12 @@ export interface Auth {
   email: string;
   avatar: string;
   phoneNumber: string;
-  createdBy: User | null;
   designationLevel: DesignationLevelType | null;
   jobTitle: JobTitleType | null;
+  role: RoleType | null;
 }
 
-export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  avatar: string;
-  phoneNumber: string;
+export interface User extends Auth {
   createdBy: User | null;
-  designationLevel: DesignationLevelType | null;
-  jobTitle: JobTitleType | null;
+  createdAt: string;
 }

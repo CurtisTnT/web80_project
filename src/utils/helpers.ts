@@ -57,7 +57,8 @@ export const handleErrorAsyncThunk = (options: {
   const { error, name, rejectWithValue } = options;
 
   const axiosError = error as AxiosError;
-  isDevelopment && console.error("Error when calling" + `${name}` + axiosError);
+  isDevelopment &&
+    console.error("Error when calling " + `${name} ` + axiosError);
 
   const res = axiosError.response!.data as ErrorResponse;
 
@@ -113,4 +114,14 @@ export function handleErrorReduxRes({
   const res = payload as ErrorResponse;
 
   onError(res);
+}
+
+//Display enum value
+export function displayEnumValue<T extends string>(
+  id: T | null,
+  objectType: {
+    [key in T]: { id: T; name: string };
+  }
+) {
+  return id ? objectType[id].name : "N/a";
 }

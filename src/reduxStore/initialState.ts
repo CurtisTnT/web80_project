@@ -1,4 +1,4 @@
-import { Auth } from "./interface";
+import { Auth, User } from "./interface";
 
 export const initAuth: Auth = {
   id: "",
@@ -7,7 +7,21 @@ export const initAuth: Auth = {
   email: "",
   avatar: "",
   phoneNumber: "",
-  createdBy: null,
   designationLevel: null,
   jobTitle: null,
+  role: null,
+};
+
+export const initialUser: User = {
+  id: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  avatar: "",
+  phoneNumber: "",
+  designationLevel: null,
+  jobTitle: null,
+  role: null,
+  createdBy: null,
+  createdAt: "",
 };

@@ -13,6 +13,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import AppLoading from "./components/loading/AppLoading";
 import { useAppDispatch } from "./reduxStore";
 import { checkAuthentication } from "./reduxStore/auth/action";
+import UserDetail from "./pages/main/Users/UserDetail";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -42,6 +43,7 @@ function App() {
           {/* Users */}
           <Route path="users" element={<Users />} />
           <Route path="users/new" element={<NewUser />} />
+          <Route path="users/:id" element={<UserDetail />} />
 
           <Route path="projects" element={<Projects />} />
           <Route path="projects/new" element={<NewProject />} />

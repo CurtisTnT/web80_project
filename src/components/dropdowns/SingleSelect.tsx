@@ -35,7 +35,7 @@ export default function SingleSelect<T>(props: Props<T>) {
   return (
     <Combobox
       value={value}
-      onChange={(value: SingleSelectValue<T>) => onChange(value)}
+      onChange={(value: SingleSelectValue<T>) => value && onChange(value)}
       onClose={() => setQuery("")}
     >
       <div className="relative">

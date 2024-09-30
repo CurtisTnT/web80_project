@@ -9,5 +9,5 @@ export default function CenterToast(props: SweetAlertOptions) {
     },
     ...props,
   });
-  toast.fire();
+  return toast.fire();
 }
